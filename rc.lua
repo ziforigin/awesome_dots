@@ -81,7 +81,7 @@ screen.connect_signal(
 do
 	local cmds =
 	{
-	  "setxkbmap -model pc105 -layout us,ru -variant qwerty -option grp:alt_shift_toggle"
+	  "setxkbmap -model pc105 -layout us,ru -variant qwerty -option grp:win_space_toggle"
 	}
   
 	for _,i in pairs(cmds) do

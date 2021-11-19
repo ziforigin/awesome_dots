@@ -2,7 +2,7 @@ configuration {
 	font: "Inter Regular 10";
 	show-icons: true;
 	drun-display-format: "{name}";
-	fullscreen: false;
+	fullscreen: true;
 	threads: 0;
 	matching: "fuzzy";
 	scroll-method: 0;

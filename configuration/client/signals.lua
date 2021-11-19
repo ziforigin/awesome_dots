@@ -24,8 +24,8 @@ local update_client = function(c)
 	local current_layout = awful.tag.getproperty(c.first_tag, 'layout')
 	if current_layout == awful.layout.suit.max and (not c.floating) then
 		c.shape = function(cr, w, h)
-			gears.shape.rounded_rect(cr, w, h, dpi(6))
-			-- gears.shape.rectangle(cr, w, h)
+			--gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
+			gears.shape.rectangle(cr, w, h)
 			end
 	elseif c.maximized then
 		c.shape = function(cr, w, h)
@@ -41,8 +41,8 @@ local update_client = function(c)
 			end
 	else
 		c.shape = function(cr, w, h)
-			gears.shape.rounded_rect(cr, w, h, dpi(6))
-			-- gears.shape.rectangle(cr, w, h)
+			-- gears.shape.rounded_rect(cr, w, h, dpi(6))
+			gears.shape.rectangle(cr, w, h)
 			end
 	end
 end
@@ -125,9 +125,9 @@ client.connect_signal(
 		local current_layout = awful.tag.getproperty(c.first_tag, 'layout')
 		if c.floating and not c.maximized then
 			c.shape = function(cr, w, h)
-				gears.shape.rounded_rect(cr, w, h, dpi(6))
+				-- gears.shape.rounded_rect(cr, w, h, dpi(6))
 				--gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
-				-- gears.shape.rectangle(cr, w, h)
+				gears.shape.rectangle(cr, w, h)
 				end
 		else
 			if current_layout == awful.layout.suit.max then
@@ -161,9 +161,9 @@ client.connect_signal(
 		local current_layout = awful.tag.getproperty(c.first_tag, 'layout')
 		if c.floating and not c.maximized then
 			c.shape = function(cr, w, h)
-				gears.shape.rounded_rect(cr, w, h, dpi(6))
+				-- gears.shape.rounded_rect(cr, w, h, dpi(6))
 				--gears.shape.rounded_rect(cr, w, h, beautiful.groups_radius)
-				-- gears.shape.rectangle(cr, w, h)
+				gears.shape.rectangle(cr, w, h)
 			end
 		else
 			if current_layout == awful.layout.suit.max then

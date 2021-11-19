@@ -119,7 +119,7 @@ local awesome_overrides = function(theme)
 	theme.groups_title_bg = '#ffffff' .. '15'
 	theme.groups_bg = '#ffffff' .. '10'
 	theme.groups_radius = dpi(16)
-	theme.small_radius = dpi(16)
+	theme.small_radius = dpi(5)
 
 	-- UI events
 	theme.leave_event = transparent
@@ -140,8 +140,8 @@ local awesome_overrides = function(theme)
 	theme.useless_gap = dpi(4)
 	theme.client_shape_rounded = function(cr, width, height)
 		-- gears.shape.rounded_rect(cr, width, height, beautiful.groups_radius)
-		gears.shape.rounded_rect(cr, width, height, dpi(6))
-		-- gears.shape.rectangle(cr, width, height)
+		-- gears.shape.rounded_rect(cr, width, height, beautiful.small_radius)
+		gears.shape.rectangle(cr, width, height)
 	end
 	-- theme.client_shape_rectangle = function(cr, width, height)
 	-- 	gears.shape.rectangle(cr, width, height)
