@@ -48,7 +48,7 @@ return {
 		-- 					'/configuration/rofi/appmenu/rofi.rasi'
 		rofi_appmenu = 'rofi -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/launchers/misc/"blurry"',
 		--colorpicker
-		colorpicker = 'kitty -e colorpicker --short --one-shot | xsel -b'
+		-- colorpicker = 'kitty -e colorpicker --short --one-shot | xsel -b' comment
 
 		-- You can add more default applications here
 	},
