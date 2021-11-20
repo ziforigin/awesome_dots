@@ -395,14 +395,22 @@ local global_keys = awful.util.table.join(
 		end,
 		{description = 'open default file manager', group = 'launcher'}
 	),
-	-- awful.key(
-	-- 	{modkey, 'Shift'}, 
-	-- 	'f',
-	-- 	function()
-	-- 		awful.spawn(apps.default.web_browser)
-	-- 	end,
-	-- 	{description = 'open default web browser', group = 'launcher'}
-	-- ),
+	awful.key(
+		{modkey}, 
+		'w',
+		function()
+			awful.spawn(apps.default.web_browser)
+		end,
+		{description = 'open default web browser', group = 'launcher'}
+	),
+	awful.key(
+		{modkey}, 
+		'e',
+		function()
+			awful.spawn(apps.default.colorpicker, false)
+		end,
+		{description = 'pick color', group = 'launcher'}
+	),
 	awful.key(
 		{'Control', 'Shift'}, 
 		'Escape',
@@ -447,14 +455,14 @@ local global_keys = awful.util.table.join(
 		end,
 		{description = 'open application drawer', group = 'launcher'}
 	),
-	awful.key(
-		{modkey},
-		'e',
-		function()
-			awful.spawn(apps.default.rofi_global, false)
-		end,
-		{description = 'open global search', group = 'launcher'}
-	),
+	-- awful.key(
+	-- 	{modkey},
+	-- 	'e',
+	-- 	function()
+	-- 		awful.spawn(apps.default.rofi_global, false)
+	-- 	end,
+	-- 	{description = 'open global search', group = 'launcher'}
+	-- ),
 	awful.key(
 		{modkey},
 		'r',

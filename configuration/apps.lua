@@ -46,7 +46,9 @@ return {
 		-- rofi_appmenu = 'rofi -fullscreen -dpi ' .. screen.primary.dpi ..
 		-- 					' -show drun -theme ' .. config_dir ..
 		-- 					'/configuration/rofi/appmenu/rofi.rasi'
-		rofi_appmenu = 'rofi -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/launchers/misc/"blurry"'
+		rofi_appmenu = 'rofi -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/launchers/misc/"blurry"',
+		--colorpicker
+		colorpicker = 'kitty -e colorpicker --short --one-shot | xsel -b'
 
 		-- You can add more default applications here
 	},

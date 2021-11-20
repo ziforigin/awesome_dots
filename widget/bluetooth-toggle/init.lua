@@ -10,6 +10,7 @@ local widget_dir = config_dir .. 'widget/bluetooth-toggle/'
 local widget_icon_dir = widget_dir .. 'icons/'
 local icons = require('theme.icons')
 local device_state = false
+local apps = require('configuration.apps')
 
 local action_name = wibox.widget {
 	text = 'Bluetooth',
@@ -147,9 +148,17 @@ widget_button:buttons(
 		awful.button(
 			{},
 			1,
-			nil,
+			-- nil,
 			function()
 				toggle_action()
+			end
+		),
+		awful.button(
+			{},
+			3,
+			-- nil,
+			function()
+				awful.spawn(apps.default.bluetooth_manager, false)
 			end
 		)
 	)

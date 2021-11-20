@@ -6,6 +6,7 @@ local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require('widget.clickable-container')
 local config = require('configuration.config')
 local military_mode = config.widget.clock.military_mode or false
+local calendar = require('widget.calendar')
 
 local create_clock = function(s)
 
@@ -102,57 +103,123 @@ local create_clock = function(s)
 	-- 	end
 	-- )
 	
-	s.month_calendar      = awful.widget.calendar_popup.month({
-		start_sunday      = true,
-		spacing           = dpi(5),
-		font              = 'Inter Regular 12',
-		long_weekdays     = true,
-		margin            = dpi(5),
-		screen            = s,
-		style_month       = {
-			border_width    = dpi(0),
-			bg_color 		= beautiful.background,
-			padding         = dpi(10),
-			shape           = function(cr, width, height)
-				-- gears.shape.rectangle(cr, width, height)
-				gears.shape.rounded_rect(
-					cr, width, height, dpi(6)
-				)
-			end
-		},
-		style_header      = { 
-			border_width    = 0, 
-			bg_color        = beautiful.transparent
-		},
-		style_weekday     = { 
-			border_width    = 0, 
-			bg_color        = beautiful.transparent
-		},
-		style_normal      = { 
-			border_width    = 0, 
-			bg_color        = beautiful.transparent
-		},
-		style_focus       = { 
-			border_width    = dpi(0), 
-			border_color    = beautiful.fg_normal, 
-			bg_color        = beautiful.accent, 
-			shape           = function(cr, width, height)
-				-- gears.shape.rectangle(cr, width, height)
-				gears.shape.rounded_rect(
-					cr, width, height, dpi(4)
-				)
-			end,
-		},
+	-- s.month_calendar      = awful.widget.calendar_popup.month({
+	-- 	start_sunday      = true,
+	-- 	spacing           = dpi(5),
+	-- 	font              = 'Inter Regular 12',
+	-- 	long_weekdays     = true,
+	-- 	margin            = dpi(5),
+	-- 	screen            = s,
+	-- 	style_month       = {
+	-- 		border_width    = dpi(0),
+	-- 		bg_color 		= beautiful.background,
+	-- 		padding         = dpi(10),
+	-- 		shape           = function(cr, width, height)
+	-- 			-- gears.shape.rectangle(cr, width, height)
+	-- 			gears.shape.rounded_rect(
+	-- 				cr, width, height, dpi(6)
+	-- 			)
+	-- 		end
+	-- 	},
+	-- 	style_header      = { 
+	-- 		border_width    = 0, 
+	-- 		bg_color        = beautiful.transparent
+	-- 	},
+	-- 	style_weekday     = { 
+	-- 		border_width    = 0, 
+	-- 		bg_color        = beautiful.transparent
+	-- 	},
+	-- 	style_normal      = { 
+	-- 		border_width    = 0, 
+	-- 		bg_color        = beautiful.transparent
+	-- 	},
+	-- 	style_focus       = { 
+	-- 		border_width    = dpi(0), 
+	-- 		border_color    = beautiful.fg_normal, 
+	-- 		bg_color        = beautiful.accent, 
+	-- 		shape           = function(cr, width, height)
+	-- 			-- gears.shape.rectangle(cr, width, height)
+	-- 			gears.shape.rounded_rect(
+	-- 				cr, width, height, dpi(4)
+	-- 			)
+	-- 		end,
+	-- 	},
+	-- })
+
+	s.new_calendar = calendar({
+		theme = 'manjaro',
+		placement = 'top center',
+		radius = 6,
+	-- with customized next/previous (see table above)
+		previous_month_button = 1,
+		next_month_button = 3,
 	})
 
-	s.month_calendar:attach(
-		s.clock_widget, 
-		'tc', 
-		{ 
-			on_pressed = true,
-			on_hover = false 
-		}
-	)
+	-- s.month_calendar      = awful.widget.calendar_popup.month({
+	-- 	start_sunday      = true,
+	-- 	spacing           = dpi(5),
+	-- 	font              = 'Inter Regular 12',
+	-- 	long_weekdays     = true,
+	-- 	margin            = dpi(5),
+	-- 	screen            = s,
+	-- 	style_month       = {
+	-- 		border_width    = dpi(0),
+	-- 		bg_color 		= beautiful.background,
+	-- 		padding         = dpi(10),
+	-- 		shape           = function(cr, width, height)
+	-- 			-- gears.shape.rectangle(cr, width, height)
+	-- 			gears.shape.rounded_rect(
+	-- 				cr, width, height, dpi(6)
+	-- 			)
+	-- 		end 
+	-- 	},
+	-- 	style_header      = { 
+	-- 		border_width    = 0, 
+	-- 		bg_color        = beautiful.transparent
+	-- 	},
+	-- 	style_weekday     = { 
+	-- 		border_width    = 0, 
+	-- 		bg_color        = beautiful.transparent
+	-- 	},
+	-- 	style_normal      = { 
+	-- 		border_width    = 0, 
+	-- 		bg_color        = beautiful.transparent
+	-- 	},
+	-- 	style_focus       = { 
+	-- 		border_width    = dpi(0), 
+	-- 		border_color    = beautiful.fg_normal, 
+	-- 		bg_color        = beautiful.accent, 
+	-- 		shape           = function(cr, width, height)
+	-- 			-- gears.shape.rectangle(cr, width, height)
+	-- 			gears.shape.rounded_rect(
+	-- 				cr, width, height, dpi(4)
+	-- 			)
+	-- 		end,
+	-- 	},
+	-- })
+
+	s.clock_widget:connect_signal("button::press", 
+    function(_, _, _, button)
+        if button == 1 then s.new_calendar.toggle() end
+    end)
+
+	-- s.month_calendar:attach(
+	-- 	s.clock_widget, 
+	-- 	'tc', 
+	-- 	{ 
+	-- 		on_pressed = true,
+	-- 		on_hover = false 
+	-- 	}
+	-- )
+
+	-- s.month_calendar:attach(
+	-- 	s.clock_widget, 
+	-- 	'tc', 
+	-- 	{ 
+	-- 		on_pressed = true,
+	-- 		on_hover = false 
+	-- 	}
+	-- )
 
 	return s.clock_widget
 end
