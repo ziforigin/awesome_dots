@@ -156,6 +156,19 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
+				tag = '1'
+			}
+		}
+
+		-- Idea
+		ruled.client.append_rule {
+			id = 'development',
+			rule_any = {
+				class = {
+					'jetbrains-idea-ce'
+				}
+			},
+			properties = {
 				tag = '2'
 			}
 		}
@@ -175,7 +188,8 @@ ruled.client.connect_signal(
 				floating = true,
 				-- above = true,
 				-- skip_decoration = true,
-				placement = awful.placement.centered
+				placement = awful.placement.centered,
+				tag = 8
 			}
 		}
 
@@ -208,7 +222,8 @@ ruled.client.connect_signal(
 					'dolphin',
 					'ark',
 					'Nemo',
-					'File-roller'
+					'File-roller',
+					'jetbrains-pycharm-ce'
 				}
 			},
 			properties = {

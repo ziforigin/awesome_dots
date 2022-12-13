@@ -6,16 +6,16 @@ local apps = require('configuration.apps')
 
 local tags = {
 	{
-		type = 'terminal',
-		icon = icons.terminal,
-		default_app = apps.default.terminal,
+		type = 'internet',
+		icon = icons.web_browser,
+		default_app = apps.default.web_browser,
 		gap = beautiful.useless_gap,
 		layout = awful.layout.suit.tile
 	},
 	{
-		type = 'internet',
-		icon = icons.web_browser,
-		default_app = apps.default.web_browser,
+		type = 'any',
+		icon = icons.development,
+		default_app = apps.default.development,
 		gap = beautiful.useless_gap,
 		layout = awful.layout.suit.tile
 	},
@@ -61,9 +61,9 @@ local tags = {
 		layout = awful.layout.suit.tile
 	},
 	{
-		type = 'any',
-		icon = icons.development,
-		default_app = apps.default.development,
+		type = 'terminal',
+		icon = icons.terminal,
+		default_app = apps.default.terminal,
 		gap = beautiful.useless_gap,
 		layout = awful.layout.suit.tile
 	}

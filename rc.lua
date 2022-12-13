@@ -81,7 +81,8 @@ screen.connect_signal(
 do
 	local cmds =
 	{
-	  "setxkbmap -model pc105 -layout us,ru -variant qwerty -option grp:win_space_toggle"
+	  "setxkbmap -model pc105 -layout us,ru -variant qwerty -option grp:win_space_toggle -option altwin:swap_alt_win",
+	  "xrandr --noprimary --output eDP --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal"
 	}
   
 	for _,i in pairs(cmds) do

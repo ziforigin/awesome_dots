@@ -12,7 +12,8 @@ return {
 		-- Default text editor
 		text_editor = 'code',
 		-- Default file manager
-		file_manager = 'nemo',
+		-- file_manager = 'nemo',
+		file_manager = 'kitty -e mc',
 		-- Default media player
 		multimedia = 'vlc',
 		-- Default game, can be a launcher like steam

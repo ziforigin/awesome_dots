@@ -105,8 +105,8 @@ local function worker(user_args)
     local theme = args.theme or 'naughty'
     local placement = args.placement or 'top'
     local radius = args.radius or 8
-    local next_month_button = args.next_month_button or 4
-    local previous_month_button = args.previous_month_button or 5
+    local next_month_button = 4
+    local previous_month_button = 5
 
     local styles = {}
     local function rounded_shape(size)
@@ -191,7 +191,8 @@ local function worker(user_args)
 
     local cal = wibox.widget {
         date = os.date('*t'),
-        font = beautiful.get_font(),
+        -- font = beautiful.get_font(),
+        font = 'Inter Regular 12',
         fn_embed = decorate_cell,
         long_weekdays = true,
         widget = wibox.widget.calendar.month
@@ -222,6 +223,9 @@ local function worker(user_args)
                         cal:set_date(nil)
                         cal:set_date(a)
                         popup:set_widget(cal)
+                    end),
+                    awful.button({}, 1, function()
+                        calendar_widget.toggle()
                     end)
             )
     )
