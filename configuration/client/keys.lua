@@ -110,6 +110,22 @@ local client_keys = awful.util.table.join(
 			c:raise()
 		end,
 		{description = 'toggle floating', group = 'client'}
+	),
+	awful.key(
+		{modkey, 'Shift'},
+		'Left',
+		function(c) 
+			c:move_to_screen(s)
+		end,
+		{description = 'move floating client up by 10 px', group = 'client'}
+	),
+	awful.key(
+		{modkey, 'Shift'},
+		'Rightz1',
+		function(c) 
+			c:move_to_screen(s)
+		end,
+		{description = 'move floating client up by 10 px', group = 'client'}
 	)
 	-- awful.key(
 	-- 	{modkey},
